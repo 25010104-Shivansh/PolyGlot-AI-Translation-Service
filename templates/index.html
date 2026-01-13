@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolyGlot AI Bridge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="brand-logo">Masai X IIT</div>
+        <h1 class="app-title">PolyGlot AI</h1>
+        <div class="user-info">
+            <span class="user-name">Shivansh Jindal</span>
+            <span class="user-roll">iitpr_ai_25010104</span>
+        </div>
+    </header>
+
+    <main class="center-wrapper">
+        <div class="lang-controls">
+            <div class="lang-group">
+                <div class="select-wrapper">
+                    <select id="sourceLang" class="lang-select">
+                        <option value="auto">Detect Language</option>
+                        <option value="en" selected>English</option>
+                        <option value="hi">Hindi (हिंदी)</option>
+                        <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
+                        <option value="bgc">Haryanvi (हरियाणवी)</option>
+                        <option value="fr">French</option>
+                        <option value="ru">Russian</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="swap-btn">
+                <span>Translating to</span>
+            </div>
+
+            <div class="lang-group">
+                <div class="select-wrapper">
+                    <select id="targetLang" class="lang-select">
+                        <option value="fr" selected>French</option>
+                        <option value="en">English</option>
+                        <option value="hi">Hindi (हिंदी)</option>
+                        <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
+                        <option value="bgc">Haryanvi (हरियाणवी)</option>
+                        <option value="ru">Russian</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="translation-container">
+            <div class="text-card input-card">
+                <div class="text-area-wrapper">
+                    <textarea id="inputText" placeholder="Enter text here..." maxlength="5000"></textarea>
+                </div>
+                <div class="card-footer">
+                    <button class="translate-cta" onclick="performTranslation()">Translate</button>
+                </div>
+            </div>
+
+            <div class="text-card output-card">
+                <div class="text-area-wrapper">
+                    <div id="resultText" class="output-text">Translation will appear here...</div>
+                </div>
+                <div class="card-footer">
+                    <button class="icon-btn" onclick="copyToClipboard()" title="Copy Translation"><i class="fas fa-copy"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="theme-toggle-container">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <span class="ball"></span>
+        </label>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

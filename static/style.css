@@ -1,0 +1,183 @@
+/* General Page Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', 'Arial', sans-serif; transition: background 0.2s, color 0.2s, box-shadow 0.2s; }
+
+body {
+    background-color: #f1f3f4;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #202124;
+}
+
+/* --- HEADER --- */
+.main-header {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-color: transparent;
+    flex-shrink: 0;
+}
+
+.brand-logo { font-size: 20px; font-weight: bold; color: #5f6368; letter-spacing: 0.5px; }
+
+.app-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    color: #5f6368;
+    font-weight: 500;
+}
+
+.user-info { display: flex; flex-direction: column; align-items: flex-end; }
+.user-name { font-weight: 700; font-size: 18px; color: #202124; }
+.user-roll { font-size: 14px; color: #5f6368; margin-top: 4px; }
+
+/* --- CENTER WRAPPER --- */
+.center-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+    width: 100%;
+}
+
+/* --- IMPROVED CONTROLS BAR --- */
+.lang-controls {
+    background: white;
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px 30px;
+    border-radius: 16px 16px 0 0; /* Modern curved top */
+    border-bottom: 1px solid #dadce0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Subtle lift */
+    z-index: 10;
+}
+
+/* --- NEW DROPDOWN STYLE (Material Pill Design) --- */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    background-color: #fff; /* White background */
+    border: 1px solid #dadce0; /* Subtle border */
+    border-radius: 8px;
+    padding: 12px 40px 12px 16px; /* Space for text + arrow */
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a73e8; /* Google Blue Text */
+    cursor: pointer;
+    outline: none;
+    min-width: 140px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Tiny shadow */
+}
+
+/* Hover Effect for Dropdown */
+.lang-select:hover {
+    background-color: #f8f9fa;
+    border-color: #d2e3fc;
+    color: #174ea6;
+}
+
+/* Focus Effect */
+.lang-select:focus {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+}
+
+/* Custom CSS Arrow */
+.select-wrapper::after {
+    content: '\f078'; /* FontAwesome Chevron Down */
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: #1a73e8;
+    pointer-events: none;
+}
+
+/* Swap Text */
+.swap-btn {
+    color: #5f6368;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0 20px;
+    user-select: none;
+}
+
+/* --- CARDS --- */
+.translation-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    background: white;
+    min-height: 350px;
+    border-radius: 0 0 16px 16px; /* Matching curves */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.text-card { flex: 1; display: flex; flex-direction: column; padding: 30px; position: relative; }
+.input-card { border-right: 1px solid #dadce0; }
+.output-card { background-color: #f8f9fa; }
+
+.text-area-wrapper { flex-grow: 1; position: relative; }
+textarea { width: 100%; height: 100%; border: none; resize: none; font-size: 24px; outline: none; background: transparent; color: inherit; font-weight: 400; }
+.output-text { font-size: 24px; white-space: pre-wrap; line-height: 1.5; font-weight: 400; }
+
+.card-footer { margin-top: 20px; display: flex; align-items: center; gap: 15px; }
+.icon-btn { background: none; border: none; color: #5f6368; font-size: 20px; cursor: pointer; padding: 10px; border-radius: 50%; transition: background 0.2s; }
+.icon-btn:hover { background-color: rgba(60,64,67,0.1); color: #202124; }
+.translate-cta { margin-left: auto; background-color: #1a73e8; color: white; border: none; padding: 12px 30px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+.translate-cta:hover { background-color: #135aba; box-shadow: 0 4px 8px rgba(0,0,0,0.25); }
+
+/* --- DARK MODE TOGGLE --- */
+.theme-toggle-container {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.checkbox { opacity: 0; position: absolute; }
+.checkbox-label { background-color: #111; width: 60px; height: 30px; border-radius: 50px; position: relative; padding: 5px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.fa-moon { color: #f1c40f; font-size: 14px; margin-left: 5px; }
+.fa-sun { color: #f39c12; font-size: 14px; margin-right: 5px; }
+.ball { background-color: #fff; width: 24px; height: 24px; position: absolute; left: 3px; top: 3px; border-radius: 50%; transition: transform 0.2s linear; }
+.checkbox:checked + .checkbox-label .ball { transform: translateX(30px); }
+
+/* --- DARK MODE THEME --- */
+body.dark { background-color: #202124; color: #e8eaed; }
+body.dark .app-title, body.dark .brand-logo { color: #e8eaed; }
+body.dark .user-name { color: #e8eaed; }
+body.dark .user-roll { color: #9aa0a6; }
+body.dark .lang-controls { background-color: #303134; border-bottom: 1px solid #3c4043; }
+body.dark .lang-select { background-color: #3c4043; color: #8ab4f8; border-color: #5f6368; }
+body.dark .lang-select:hover { background-color: #484a4d; }
+body.dark .swap-btn { color: #9aa0a6; }
+body.dark .translation-container { background-color: #303134; }
+body.dark .input-card { border-right: 1px solid #3c4043; }
+body.dark .output-card { background-color: #3c4043; }
+body.dark .icon-btn { color: #9aa0a6; }
+body.dark .icon-btn:hover { background-color: rgba(255,255,255,0.1); }
+body.dark .translate-cta { background-color: #8ab4f8; color: #202124; }
